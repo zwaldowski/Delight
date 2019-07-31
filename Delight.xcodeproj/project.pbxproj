@@ -22,6 +22,7 @@
 		DBD11A4F22F00F710095FB38 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD11A4C22F00F700095FB38 /* ImagePicker.swift */; };
 		DBD11A5022F00F710095FB38 /* OptionsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD11A4D22F00F700095FB38 /* OptionsButton.swift */; };
 		DBD11A5522F011C00095FB38 /* ImageWell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD11A5422F011BF0095FB38 /* ImageWell.swift */; };
+		DBE4E29622F25AFA0045709E /* AppStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE4E29522F25AFA0045709E /* AppStorage.swift */; };
 		DBF640E622F14719006F4698 /* Delight.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DB46C38A22E3D03C00D491A8 /* Delight.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
@@ -44,6 +45,7 @@
 		DBD11A4C22F00F700095FB38 /* ImagePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		DBD11A4D22F00F700095FB38 /* OptionsButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionsButton.swift; sourceTree = "<group>"; };
 		DBD11A5422F011BF0095FB38 /* ImageWell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageWell.swift; sourceTree = "<group>"; };
+		DBE4E29522F25AFA0045709E /* AppStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStorage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +119,7 @@
 			children = (
 				DB46C40522E3F2C100D491A8 /* Expense.swift */,
 				DB46C38A22E3D03C00D491A8 /* Delight.xcdatamodeld */,
+				DBE4E29522F25AFA0045709E /* AppStorage.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -205,6 +208,7 @@
 				DBD11A4F22F00F710095FB38 /* ImagePicker.swift in Sources */,
 				DB46C40622E3F2C100D491A8 /* Expense.swift in Sources */,
 				DBD119C222EFDD3B0095FB38 /* Optional+BindingConversion.swift in Sources */,
+				DBE4E29622F25AFA0045709E /* AppStorage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
