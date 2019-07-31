@@ -21,6 +21,17 @@ class AppStorage: NSPersistentContainer {
         return container
     }()
 
+    #if DEBUG
+    static var forPreviewing: AppStorage {
+        let container = AppStorage(name: "Delight")
+        container.persistentStoreDescriptions[0].url = URL(fileURLWithPath: "/dev/null")
+        container.loadPersistentStores { (_, error) in
+            precondition(error == nil, "Unresolved error \(error!)")
+        }
+        return container
+    }
+    #endif
+
     func save() {
         guard viewContext.hasChanges else { return }
         try! viewContext.save()

@@ -35,3 +35,18 @@ struct ExpenseRow: View {
     }
 
 }
+
+#if DEBUG
+struct ExpenseRow_Previews: PreviewProvider {
+
+    static var previews: some View {
+        let context = AppStorage.forPreviewing.viewContext
+        let previewExpense = Expense(context: context)
+        return ExpenseRow(expense: previewExpense)
+            .environment(\.managedObjectContext, context)
+            .padding()
+            .previewLayout(.fixed(width: 440, height: 48))
+    }
+
+}
+#endif

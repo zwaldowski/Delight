@@ -98,3 +98,16 @@ struct ExpenseDetails: View {
     }
 
 }
+
+#if DEBUG
+struct ExpenseDetails_Previews: PreviewProvider {
+    
+    static var previews: some View {
+        let context = AppStorage.forPreviewing.viewContext
+        let previewExpense = Expense(context: context)
+        return ExpenseDetails(expense: previewExpense)
+            .environment(\.managedObjectContext, context)
+    }
+
+}
+#endif
