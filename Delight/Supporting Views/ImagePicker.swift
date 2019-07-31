@@ -7,8 +7,12 @@ import SwiftUI
 
 struct ImagePicker: UIViewControllerRepresentable {
 
+    static func isAvailable(_ type: UIImagePickerController.SourceType) -> Bool {
+        return UIImagePickerController.isSourceTypeAvailable(type)
+    }
+
     let sourceType: UIImagePickerController.SourceType
-    let completion: (UIImage?) -> Void
+    @Binding var image: UIImage?
 
     func makeUIViewController(context: Context) -> UIImagePickerController {
         let picker = UIImagePickerController()
@@ -21,15 +25,15 @@ struct ImagePicker: UIViewControllerRepresentable {
 
     class Coordinator: NSObject, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
 
-        let completion: (UIImage?) -> Void
-        init(completion: @escaping(UIImage?) -> Void) {
-            self.completion = completion
+        @Binding var image: UIImage?
+        init(image: Binding<UIImage?>) {
+            self._image = image
         }
 
         func imagePickerController(_ imagePickerController: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
             let image = info[.originalImage] as? UIImage
             imagePickerController.dismiss(animated: true) {
-                self.completion(image)
+                self.image = image
             }
         }
 
@@ -40,7 +44,7 @@ struct ImagePicker: UIViewControllerRepresentable {
     }
 
     func makeCoordinator() -> Coordinator {
-        return Coordinator(completion: completion)
+        return Coordinator(image: $image)
     }
 
 }

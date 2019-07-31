@@ -24,9 +24,9 @@ struct ImageWell: View {
         var isAvailable: Bool {
             switch self {
             case .camera:
-                return UIImagePickerController.isSourceTypeAvailable(.camera)
+                return ImagePicker.isAvailable(.camera)
             case .photoLibrary:
-                return UIImagePickerController.isSourceTypeAvailable(.photoLibrary)
+                return ImagePicker.isAvailable(.photoLibrary)
             }
         }
     }
@@ -44,9 +44,9 @@ struct ImageWell: View {
                 OptionsButton("Add Image", of: Source.self) { (source) -> ImagePicker in
                     switch source {
                     case .camera:
-                        return ImagePicker(sourceType: .camera, completion: self.picked)
+                        return ImagePicker(sourceType: .camera, image: self.$image)
                     case .photoLibrary:
-                        return ImagePicker(sourceType: .photoLibrary, completion: self.picked)
+                        return ImagePicker(sourceType: .photoLibrary, image: self.$image)
                     }
                 }
             }
