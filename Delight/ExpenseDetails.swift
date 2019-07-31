@@ -30,7 +30,12 @@ struct ExpenseDetails: View {
         HStack {
             Text("Name")
                 .fontWeight(.bold)
+
+            /// Spacer appears to cause truncation of the text field.
+            /// FB6771596
             Spacer()
+                .layoutPriority(-1)
+
             TextField("Name", text: $expense.name.orEmpty)
                 .multilineTextAlignment(.trailing)
         }
@@ -40,7 +45,12 @@ struct ExpenseDetails: View {
         HStack {
             Text("Value")
                 .fontWeight(.bold)
+
+            /// Spacer appears to cause truncation of the text field.
+            /// FB6771596
             Spacer()
+                .layoutPriority(-1)
+
             TextField("$0.00", value: $expense.valueInUSD, formatter: currencyFormatter)
                 .multilineTextAlignment(.trailing)
         }
