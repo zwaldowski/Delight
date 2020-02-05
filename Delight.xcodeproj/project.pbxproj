@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DB309F3D23EA81DC004A9246 /* ArrayBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB309F3C23EA81DC004A9246 /* ArrayBuilder.swift */; };
+		DB309F3F23EA8266004A9246 /* Option.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB309F3E23EA8266004A9246 /* Option.swift */; };
 		DB46C38722E3D03C00D491A8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB46C38622E3D03C00D491A8 /* AppDelegate.swift */; };
 		DB46C38922E3D03C00D491A8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB46C38822E3D03C00D491A8 /* SceneDelegate.swift */; };
 		DB46C38E22E3D03C00D491A8 /* ExpensesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB46C38D22E3D03C00D491A8 /* ExpensesList.swift */; };
@@ -27,6 +29,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DB309F3C23EA81DC004A9246 /* ArrayBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayBuilder.swift; sourceTree = "<group>"; };
+		DB309F3E23EA8266004A9246 /* Option.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Option.swift; sourceTree = "<group>"; };
 		DB46C38322E3D03C00D491A8 /* Delight.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Delight.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB46C38622E3D03C00D491A8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DB46C38822E3D03C00D491A8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -95,9 +99,11 @@
 		DBD11A5122F011220095FB38 /* Supporting Views */ = {
 			isa = PBXGroup;
 			children = (
+				DB309F3C23EA81DC004A9246 /* ArrayBuilder.swift */,
 				DBD11A4B22F00F700095FB38 /* ConfirmButton.swift */,
 				DBD11A4C22F00F700095FB38 /* ImagePicker.swift */,
 				DBD11A5422F011BF0095FB38 /* ImageWell.swift */,
+				DB309F3E23EA8266004A9246 /* Option.swift */,
 				DBD119C122EFDD3B0095FB38 /* Optional+BindingConversion.swift */,
 				DBD11A4D22F00F700095FB38 /* OptionsButton.swift */,
 				DBD119C422EFE1E60095FB38 /* TextView.swift */,
@@ -197,9 +203,11 @@
 				DB9DE51022E4412400463EE9 /* ExpenseRow.swift in Sources */,
 				DBD11A5522F011C00095FB38 /* ImageWell.swift in Sources */,
 				DBD119C622EFE1E60095FB38 /* TextView.swift in Sources */,
+				DB309F3D23EA81DC004A9246 /* ArrayBuilder.swift in Sources */,
 				DBD11A4E22F00F710095FB38 /* ConfirmButton.swift in Sources */,
 				DBD119EE22EFE6620095FB38 /* ExpensesMain.swift in Sources */,
 				DBF640E622F14719006F4698 /* Delight.xcdatamodeld in Sources */,
+				DB309F3F23EA8266004A9246 /* Option.swift in Sources */,
 				DBD119C522EFE1E60095FB38 /* ExpenseDetails.swift in Sources */,
 				DB46C38722E3D03C00D491A8 /* AppDelegate.swift in Sources */,
 				DB46C38922E3D03C00D491A8 /* SceneDelegate.swift in Sources */,

@@ -5,49 +5,35 @@
 
 import SwiftUI
 
-protocol Options: CaseIterable, Identifiable {
-    associatedtype ID = Self
+struct OptionsButton<Label, Destination>: View where Label: View, Destination: View {
 
-    var label: Text { get }
-    var isAvailable: Bool { get }
-}
+    typealias Builder = ArrayBuilder<Option<Destination>>
+    typealias Options = [Option<Destination>]
 
-extension Options where ID == Self {
-    var id: Self {
-        return self
-    }
-}
-
-extension Options {
-    var isAvailable: Bool { true }
-}
-
-private extension Options {
-    static var allAvailable: [Self] {
-        allCases.filter { $0.isAvailable }
-    }
-}
-
-struct OptionsButton<Option, Destination>: View where Option: Options, Destination: View {
-
-    let label: () -> Text
-    let sheetContent: (Option) -> Destination
-
+    let label: Label
+    let options: Options
     @State var isShowingMenu = false
-    @State var selectedOption: Option?
+    @State var selectedOption: Option<Destination>?
+
+    init(label: Label, @Builder options: () -> Options) {
+        self.label = label
+        self.options = options()
+    }
 
     func makeActionSheet() -> ActionSheet {
-        ActionSheet(title: Text("Select an option"), buttons: Option.allAvailable.map { (option) in
-            .default(option.label) {
-                self.selectedOption = option
-            }
-        } + [ .cancel() ])
+        ActionSheet(
+            title: Text("Select an option"),
+            buttons: options.map { (option) in
+                Alert.Button.default(option.label) {
+                    self.selectedOption = option
+                }
+            } + [ .cancel() ])
     }
 
     var body: some View {
-        Button(action: showMenu, label: label)
+        Button(action: showMenu) { self.label }
             .actionSheet(isPresented: $isShowingMenu, content: makeActionSheet)
-            .sheet(item: $selectedOption, content: sheetContent)
+            .sheet(item: $selectedOption) { $0.destination() }
     }
 
     func showMenu() {
@@ -56,12 +42,14 @@ struct OptionsButton<Option, Destination>: View where Option: Options, Destinati
 
 }
 
-extension OptionsButton {
+extension OptionsButton where Label == Text {
 
-    init(_ titleKey: LocalizedStringKey, of _: Option.Type, sheetContent: @escaping(Option) -> Destination) {
-        self.label = { Text(titleKey) }
-        self.sheetContent = sheetContent
-        self._selectedOption = State<Option?>(wrappedValue: nil) // other bug?
+    init(_ titleKey: LocalizedStringKey, @Builder options: () -> Options) {
+        self.init(label: Label(titleKey), options: options)
+    }
+
+    init<S>(_ title: S, @Builder options: () -> Options) where S: StringProtocol {
+        self.init(label: Label(title), options: options)
     }
 
 }
