@@ -11,6 +11,7 @@ struct TextView: UIViewRepresentable {
 
     func makeUIView(context: Context) -> UITextView {
         let view = UITextView()
+        view.backgroundColor = .clear
         view.font = .preferredFont(forTextStyle: .body)
         view.adjustsFontForContentSizeCategory = true
         view.delegate = context.coordinator
